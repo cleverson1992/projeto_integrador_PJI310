@@ -1,0 +1,212 @@
+@font-face {
+    font-family: votorantim-sans;
+    src: url(../fonts/Votorantim\ Sans\ Regular.woff2.ttf);
+}
+* { 
+    /* CSS Reset */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "votorantim-sans", sans-serif;
+}
+
+:root {
+    --azul-cba: #113CEA;
+    --azul-claro-cba: #0FD3E8;
+    --azul-escuro-cba: #000064;
+    --cinza-claro-cba: #dbdbdb;
+    --cinza-escuro-cba: #3c3c3c;
+    --roxo-cba: #430098;
+}
+
+.header {grid-area: header;}
+.footer {grid-area: footer;}
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    grid-area: "content";
+}
+
+.grid-container {
+    display: grid;
+    gap: 5px;
+    grid-template:
+		"header" 10px
+		"content" 1fr
+		"footer" 10px
+        / 1fr;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--cinza-claro-cba);
+}
+
+.card {
+    width: 95%;
+    max-width: 550px;
+    height: max-content;
+    padding: 20px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 2%;
+    background-color: #fff;
+}
+
+#icon-upload {
+    text-align: center;
+    color: var(--azul-cba);
+    padding: 12px;
+}
+
+#label-text1 {
+    display: block;
+    font-weight: bold;
+    margin: 5px auto;
+}
+
+#label-text2 {
+    font-size: .9em;
+    display: block;
+    color: #a1a1a1;
+    margin-bottom: 15px;
+}
+
+#labelUpload {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    padding: .3em;
+    margin: 0 auto 15px;
+    border: dashed 2px var(--azul-cba);
+    border-radius: .2em;
+}
+
+#labelSelect {
+    display: block;
+    font-weight: bold;
+    margin: 30px auto 5px;
+}
+#selectContainer {
+    margin-top: 10px;
+}
+#selectUnidades {
+    min-width: 250px;
+    border: 2px solid var(--azul-cba);
+    /* appearance: none; */
+    padding: 15px 10px;
+    background-color: white;
+    color: var(--azul-cba);
+    border-radius: .3em;
+}
+
+label > :nth-child(1) {
+    /* Inone do arquivo de vídeo */
+    display: none;
+    flex-grow: 0;
+    margin-left: 15px;
+    color: #8a8a8a;
+}
+
+label > :nth-child(2) {
+    /* Texto Escolher arquivo */
+    font-family: monospace;
+    font-size: 1.1em;
+    flex-grow: 1;
+    padding: .6em;
+    color: #8a8a8a;
+}
+
+label > :nth-child(3) {
+    /* Botão de carregar */
+    flex-grow: 1;
+    padding: .6em;
+    background-color: var(--cinza-claro-cba);
+    text-align: center;
+    color: var(--azul-cba);
+    min-width: 13rem;
+    border-radius: .3em;
+    cursor: pointer;
+    transition: .4s;
+    border: solid 2px var(--azul-cba);
+}
+label > :nth-child(3):hover {
+    color: var(--azul-cba);
+    border: solid 2px var(--azul-cba);
+    /* background-color: var(--roxo-cba); */
+}
+label > :nth-child(3):active {
+    background-color: var(--azul-cba);
+    color: white;
+}
+
+.erro-arquivo {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: .7em;
+    margin: 0 auto 15px;
+    border-radius: .2em;
+}
+
+.erro-arquivo.msg1 {
+    border: solid 1px #fa4c4c;
+    color: #fa4c4c;
+}
+.erro-arquivo.msg2 {
+    border: solid 1px #fa8500;
+    color: #fa8500;
+}
+.erro-arquivo.msg3 {
+    border: solid 1px #17c500;
+    color: #17c500;
+    background-color: #e2fcdf;
+}
+
+.erro-active {
+    display: flex;
+}
+
+#file {
+    /* Input original oculto */
+    display: none;
+}
+
+.btn {
+    /* Botão de enviar */
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin: 30px auto 10px;
+    border: solid 1px;
+    border-color: grey;
+    border-radius: .3em;
+    color: white;
+    background-color: var(--azul-cba);
+    transition: .4s;
+    cursor: pointer;
+}
+
+.btn2 {
+    position: absolute;
+    transform: translateY(40px);
+    text-align: center;
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin-top: 25px;
+    padding: 13px 0;
+    border: solid 1px;
+    border-color: red;
+    border-radius: .3em;
+    color: red;
+    background-color: #fcefef;
+    transition: .4s;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn:hover {background-color: var(--azul-escuro-cba); color: white;}
+.btn2:hover {background-color: red; color: white;}
+.btn:active{background-color: var(--roxo-cba);}

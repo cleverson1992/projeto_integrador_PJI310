@@ -1,0 +1,67 @@
+body {
+    background-color: var(--cinza-claro-cba);
+}
+
+.form-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form-card h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-card form {
+    background-color: white;
+    width: 95%;
+    max-width: 450px;
+    height: max-content;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.10);
+}
+
+
+.form-card p {
+    display: flex;
+    padding: 10px;
+    padding-left: 25px;
+}
+
+.form-card p label {
+    background-color: var(--roxo-cba);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3em;
+}
+
+.form-card input {
+    width: 100%;
+    height: 50px;
+    padding-left: 25px;
+}
+
+.form-card #btn-login {
+    width: 100%;
+    height: 50px;
+    margin: 10px auto;
+    border-style: none;
+    border-color: #c1c1c1;
+    border-radius: .4em;
+    color: white;
+    background-color: var(--roxo-cba);
+    transition: .4s;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.form-card #btn-login:hover {
+    background-color: #5102b9;
+}

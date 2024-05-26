@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicons import -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Icons import -->
+    <link rel="stylesheet" type="text/css" href="icofont.css">
+
+    <link rel="stylesheet" href="css/video.css">
+    <title>Player Miraí</title>
+</head>
+<body>
+
+    <video id="player-video" preload="auto" controls autoplay muted>
+        <source src="" type="video/mp4">
+        <!-- <source src="" type="video/ogg"> -->
+    </video>
+
+    <script src="./js/video.js"></script>
+
+    <script src="./js/video.js"></script>
+
+    <script>
+        const videoElement = document.getElementById('player-video')
+        const sourceVideo = videoElement.getAttribute('src')
+
+        function getVideo () {
+            //Chamada para requisição http
+            fetch('verifica.php?unidade=mirai')
+            .then(response => response.json())
+            .then(data  => {
+                videoElement.src = data[0]
+
+                let currentIndex = data.indexOf(sourceVideo)
+                let nextIndex = (currentIndex + 1) % data.length
+                console.log(data[nextIndex])
+
+                videoElement.src = data[nextIndex]
+                videoElement.load()
+
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
+        }
+
+        //Verifica so vidio foi reproduzido por completo
+        if(sourceVideo == null){
+            getVideo()
+        }
+
+        videoElement.addEventListener("ended", () => {
+            getVideo()
+        })
+        
+
+    </script>
+
+</body>
+</html>
